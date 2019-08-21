@@ -2,7 +2,7 @@ package com.example.retrofitcoroutinesgsonfetchapidata.Data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Response(
+data class MyResponse(
 
 	@field:SerializedName("copyright")
 	val copyright: String? = null,

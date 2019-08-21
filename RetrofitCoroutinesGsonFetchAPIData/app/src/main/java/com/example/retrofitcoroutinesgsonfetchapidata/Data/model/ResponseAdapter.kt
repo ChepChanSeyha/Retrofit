@@ -1,28 +1,35 @@
 package com.example.retrofitcoroutinesgsonfetchapidata.Data.model
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.retrofitcoroutinesgsonfetchapidata.R
 
 
-class ResponseAdapter: RecyclerView.Adapter<ResponseAdapter.ResponseHolder>() {
+class ResponseAdapter(private val myData: List<ResultsItem>) : RecyclerView.Adapter<ResponseAdapter.ResponseViewHolder>()  {
 
-    private val response = ArrayList<Response>()
+    class ResponseViewHolder (view: View) : RecyclerView.ViewHolder(view) {
+        val displayNameT: TextView = view.findViewById(R.id.displayName)
+        val listNameT: TextView = view.findViewById(R.id.listName)
+        val oldDateT: TextView = view.findViewById(R.id.oldDate)
+        val newDateT: TextView = view.findViewById(R.id.newDate)
+    }
 
-    class ResponseHolder(var textView: TextView) : RecyclerView.ViewHolder(textView)
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResponseHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResponseViewHolder {
         val textView = LayoutInflater.from(parent.context).inflate(R.layout.item_response, parent, false) as TextView
-        return ResponseHolder(textView)
+        return ResponseViewHolder(textView)
     }
 
     override fun getItemCount(): Int {
-        return response.size
+        return myData.size
     }
 
-    override fun onBindViewHolder(holder: ResponseHolder, position: Int) {
-        holder.textView.text = response[position].toString()
+    override fun onBindViewHolder(holder: ResponseViewHolder, position: Int) {
+        holder.displayNameT.text = myData[position].displayName
+        holder.listNameT.text = myData[position].listName
+        holder.oldDateT.text = myData[position].oldestPublishedDate
+        holder.newDateT.text = myData[position].newestPublishedDate
     }
 }
