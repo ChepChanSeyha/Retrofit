@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.retrofitcoroutinesgsonfetchapidata.R
 
 
-class ResponseAdapter : RecyclerView.Adapter<ResponseAdapter.ResponseViewHolder>()  {
+class ResponseAdapter : RecyclerView.Adapter<ResponseAdapter.ResponseViewHolder>() {
+
     private var dataList = ArrayList<Data>()
     // fun set list
     fun setList(list: ArrayList<Data>){
