@@ -33,9 +33,13 @@ class ResponseAdapter : RecyclerView.Adapter<ResponseAdapter.ResponseViewHolder>
     }
 
     override fun onBindViewHolder(holder: ResponseViewHolder, position: Int) {
-        holder.displayNameT.text = dataList[position].displayName
-        holder.listNameT.text = dataList[position].listName
-        holder.oldDateT.text = dataList[position].oldestPublishedDate
-        holder.newDateT.text = dataList[position].newestPublishedDate
+        val name = dataList[position].displayName
+        val listName = dataList[position].listName
+        val oldDate = dataList[position].oldestPublishedDate
+        val newDate = dataList[position].newestPublishedDate
+        holder.displayNameT.text = "Name:   $name"
+        holder.listNameT.text = "List Name: $listName"
+        holder.oldDateT.text = "Old Date:   $oldDate"
+        holder.newDateT.text = "New Date:   $newDate"
     }
 }

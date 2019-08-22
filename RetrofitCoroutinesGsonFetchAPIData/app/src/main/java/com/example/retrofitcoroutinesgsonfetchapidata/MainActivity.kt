@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.retrofitcoroutinesgsonfetchapidata.Data.RetrofitClient
 import com.example.retrofitcoroutinesgsonfetchapidata.Data.model.Reqres
 import com.example.retrofitcoroutinesgsonfetchapidata.Data.model.ResponseAdapter
-import com.example.retrofitcoroutinesgsonfetchapidata.Data.model.Data
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -27,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = linearLayoutManager
         adapterRes = ResponseAdapter()
         recyclerView.adapter = adapterRes
-        linearLayoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
 
     }
 
