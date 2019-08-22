@@ -2,7 +2,7 @@ package com.example.retrofitcoroutinesgsonfetchapidata.Data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class ResultsItem(
+data class Data(
 
 	@field:SerializedName("newest_published_date")
 	val newestPublishedDate: String? = null,

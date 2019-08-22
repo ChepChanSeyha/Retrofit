@@ -8,7 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.retrofitcoroutinesgsonfetchapidata.R
 
 
-class ResponseAdapter(private val myData: List<ResultsItem>) : RecyclerView.Adapter<ResponseAdapter.ResponseViewHolder>()  {
+class ResponseAdapter : RecyclerView.Adapter<ResponseAdapter.ResponseViewHolder>()  {
+    private var dataList = ArrayList<Data>()
+    // fun set list
+    fun setList(list: ArrayList<Data>){
+        dataList = list
+    }
 
     class ResponseViewHolder (view: View) : RecyclerView.ViewHolder(view) {
         val displayNameT: TextView = view.findViewById(R.id.displayName)
@@ -18,18 +23,18 @@ class ResponseAdapter(private val myData: List<ResultsItem>) : RecyclerView.Adap
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResponseViewHolder {
-        val textView = LayoutInflater.from(parent.context).inflate(R.layout.item_response, parent, false) as TextView
+        val textView = LayoutInflater.from(parent.context).inflate(R.layout.item_response, parent, false)
         return ResponseViewHolder(textView)
     }
 
     override fun getItemCount(): Int {
-        return myData.size
+        return dataList.size
     }
 
     override fun onBindViewHolder(holder: ResponseViewHolder, position: Int) {
-        holder.displayNameT.text = myData[position].displayName
-        holder.listNameT.text = myData[position].listName
-        holder.oldDateT.text = myData[position].oldestPublishedDate
-        holder.newDateT.text = myData[position].newestPublishedDate
+        holder.displayNameT.text = dataList[position].displayName
+        holder.listNameT.text = dataList[position].listName
+        holder.oldDateT.text = dataList[position].oldestPublishedDate
+        holder.newDateT.text = dataList[position].newestPublishedDate
     }
 }
